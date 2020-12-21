@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/myAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/ic_launcher_background"
+            app:layout_scrollFlags="scroll"
+            app:title="这是" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:tabTextColor="@android:color/white">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="标签1" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="标签2" />
+        </com.google.android.material.tabs.TabLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/llText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="30dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <!--      app:layout_behavior="@string/appbar_scrolling_view_behavior"这句话就是让 NestedScrollView 在 AppBarLayout下面显示-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/applayoutText"
+            android:textSize="30dp" />
+    </androidx.core.widget.NestedScrollView>
+    <!--
+       CoordinatorLayout为子View提供了一个anchor属性，可以设置锚点，即固定在某个控件的某个位置
+       app:layout_anchor：设置锚点控件
+       app:layout_anchorGravity：设置将当前控件固定在目标控件的哪个位置
+   -->
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@android:color/holo_orange_light"
+            android:gravity="center"
+            app:layout_anchor="@id/llText"
+            app:layout_anchorGravity="bottom"
+            android:text="我是底部控件栏"
+            />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
