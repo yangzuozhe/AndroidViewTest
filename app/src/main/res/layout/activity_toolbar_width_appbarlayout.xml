@@ -9,18 +9,38 @@
         android:id="@+id/myAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-
-        <androidx.appcompat.widget.Toolbar
+        <!--这次我们主要学习这个布局 CollapsingToolbarLayout-->
+        <!--app:contentScrim="@android:color/holo_blue_light"就是表示折叠成标题栏的时候呈现的颜色-->
+        <!--      app:expandedTitleMarginStart  布局张开的时候title与左边的距离-->
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/ic_launcher_background"
-            app:layout_scrollFlags="scroll"
-            app:title="这是" />
+            android:layout_height="wrap_content"
+            app:contentScrim="@android:color/holo_blue_light"
+            app:expandedTitleMarginEnd="60dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@android:color/holo_orange_light"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.5" />
+
+            <!--这里要注意这里的Toolbar不可以设置颜色，不然就会造成Toolbar在最顶部，为另一种颜色-->
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="parallax"
+                app:navigationIcon="@drawable/ic_launcher_foreground"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:title="这是" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:tabTextColor="@android:color/white">
 
             <com.google.android.material.tabs.TabItem
@@ -58,15 +78,14 @@
    -->
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="@android:color/holo_orange_light"
-            android:gravity="center"
-            app:layout_anchor="@id/llText"
-            app:layout_anchorGravity="bottom"
-            android:text="我是底部控件栏"
-            />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@android:color/holo_orange_light"
+        android:gravity="center"
+        android:text="我是底部控件栏"
+        app:layout_anchor="@id/llText"
+        app:layout_anchorGravity="bottom" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

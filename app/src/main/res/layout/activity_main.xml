@@ -17,5 +17,11 @@
         app:title="我是标题"
         app:titleTextColor="@android:color/white" />
 
+    <TextView
+        android:id="@+id/tvMyTv"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
