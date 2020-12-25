@@ -47,6 +47,7 @@
 
             <!--这里要注意这里的Toolbar不可以设置颜色，不然就会造成Toolbar在最顶部，为另一种颜色-->
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/myToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
